@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="S3.Northwind.Gui.Desktop.StackedButtonNavigationUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:S3.Northwind.Gui.Desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <StackPanel>
+            <ToggleButton Content="_HR" Height="40" Checked="ToggleButton_Checked"/>
+            <ToggleButton Content="Ordre" Height="40"/>
+            <ToggleButton Content="Produkter" Height="40"/>
+            <ToggleButton Content="Regnskab" Height="40"/>
+            <ToggleButton Content="Kunder" Height="40"/>
+            <ToggleButton Content="Leverandører" Height="40"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

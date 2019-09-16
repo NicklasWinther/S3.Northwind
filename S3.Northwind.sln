@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.DataAccess", "S3.Northwind.DataAccess\S3.Northwind.DataAccess.csproj", "{C5270E09-BE23-4A4E-9699-A27AC7D9F0FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.Gui.Desktop", "S3.Northwind.Gui.Desktop\S3.Northwind.Gui.Desktop.csproj", "{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.Entities", "S3.Northwind.Entities\S3.Northwind.Entities.csproj", "{2C778EB6-9851-4743-99E6-769A8D1FDEF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.ValidationWebService", "S3.Northwind.ValidationWebService\S3.Northwind.ValidationWebService.csproj", "{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.ValidationWebServiceTest", "S3.Northwind.ValidationWebServiceTest\S3.Northwind.ValidationWebServiceTest.csproj", "{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5270E09-BE23-4A4E-9699-A27AC7D9F0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5270E09-BE23-4A4E-9699-A27AC7D9F0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5270E09-BE23-4A4E-9699-A27AC7D9F0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5270E09-BE23-4A4E-9699-A27AC7D9F0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBFEEC0C-DD35-4F1D-927D-28BC0B56A02F}
+	EndGlobalSection
+EndGlobal

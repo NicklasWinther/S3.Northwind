@@ -1,0 +1,515 @@
+﻿<UserControl x:Class="S3.Northwind.Gui.Desktop.HrUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:S3.Northwind.Gui.Desktop"
+             mc:Ignorable="d"
+             d:DesignHeight="700"
+             d:DesignWidth="800"
+             Background="LightBlue">
+    <Grid>
+
+        <!--#region Tabel-->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Column="0"
+                  x:Name="employeeDataGrid"
+                  ItemsSource="{Binding Path=Employees}"
+                  AutoGenerateColumns="False"
+                  SelectionChanged="EmployeeDataGrid_SelectionChanged"
+                  AlternatingRowBackground="LightBlue">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Fornavn"
+                                    Binding="{Binding FirstName}" />
+                <DataGridTextColumn Header="Efternavn"
+                                    Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Job titel"
+                                    Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Titel"
+                                    Binding="{Binding TitleOfCourtesy}" />
+                <DataGridTextColumn Header="Fødselsdag"
+                                    Binding="{Binding BirthDate, StringFormat='dd/MM/yyyy'}" />
+                <DataGridTextColumn Header="Ansættelsesdato"
+                                    Binding="{Binding HireDate, StringFormat='dd/MM/yyyy'}" />
+                <DataGridTextColumn Header="Adresse"
+                                    Binding="{Binding Address}" />
+                <DataGridTextColumn Header="By"
+                                    Binding="{Binding City}" />
+                <DataGridTextColumn Header="Region"
+                                    Binding="{Binding Region}" />
+                <DataGridTextColumn Header="Postnummer"
+                                    Binding="{Binding PostalCode}" />
+                <DataGridTextColumn Header="Land"
+                                    Binding="{Binding Country}" />
+                <DataGridTextColumn Header="Telefonnummer"
+                                    Binding="{Binding HomePhone}" />
+                <DataGridTextColumn Header="Extention"
+                                    Binding="{Binding Extension}" />
+                <DataGridTextColumn Header="Noter"
+                                    Binding="{Binding Notes}" />
+                <DataGridTextColumn Header="Initialer"
+                                    Binding="{Binding Initials}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--#endregion-->
+
+        <!--#region Søgning-->
+
+        <Grid Grid.Column="0"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+
+            <!--Søg efter navn-->
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   x:Name="searchLabel"
+                   Content="Søg på navn:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom" />
+            <TextBox Grid.Column="1"
+                     Grid.Row="0"
+                     x:Name="textBoxSearchName"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="120"
+                     TextChanged="TextBoxSearchName_TextChanged"
+                     Margin="0,8,0,0" />
+
+            <!--Søg efter initialer-->
+
+            <Label Grid.Column="0"
+                   Grid.Row="1"
+                   x:Name="searchInitialsLabel"
+                   Content="Søg på initialer:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom" />
+            <TextBox Grid.Column="1"
+                     Grid.Row="1"
+                     x:Name="textBoxSearchInitials"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Bottom"
+                     Width="120"
+                     TextChanged="TextBoxSearchInitials_TextChanged" />
+
+            <!--Søg på lande-->
+
+            <Label Grid.Column="0"
+                   Grid.Row="2"
+                   x:Name="searchCountry"
+                   Content="Søg på land:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom" />
+            <ComboBox Grid.Column="1"
+                      Grid.Row="2"
+                      x:Name="searchCountryComboBox"
+                      Height="23"
+                      Width="120"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      SelectionChanged="SearchCountryComboBox_SelectionChanged"
+                      ItemsSource="{Binding Path=Countries}">
+            </ComboBox>
+
+            <!--Søg på region-->
+            <Label Grid.Column="0"
+                   Grid.Row="3"
+                   x:Name="searchRegion"
+                   Content="Søg på region:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom" />
+            <ComboBox Grid.Column="1"
+                      Grid.Row="3"
+                      x:Name="searchRegionComboBox"
+                      Height="23"
+                      Width="120"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Bottom"
+                      SelectionChanged="SearchRegionComboBox_SelectionChanged">
+            </ComboBox>
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Opdatering af ansat-->
+
+        <Grid Grid.Column="1"
+              Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+            <!--Fornavn-->
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   x:Name="firstnameLabel"
+                   Content="Fornavn:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.FirstName}"
+                     Grid.Column="1"
+                     Grid.Row="0"
+                     x:Name="textBoxFirstname"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Efternavn-->
+            <Label Grid.Column="0"
+                   Grid.Row="1"
+                   x:Name="lastnameLabel"
+                   Content="Efternavn:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.LastName}"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     x:Name="textBoxLastname"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Job titel-->
+            <Label Grid.Column="0"
+                   Grid.Row="2"
+                   x:Name="titleLabel"
+                   Content="Job titel:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.Title}"
+                     Grid.Column="1"
+                     Grid.Row="2"
+                     x:Name="textBoxTitel"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Titel-->
+            <Label Grid.Column="0"
+                   Grid.Row="3"
+                   x:Name="titleOfCourtesyLabel"
+                   Content="Titel:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.TitleOfCourtesy}"
+                     Grid.Column="1"
+                     Grid.Row="3"
+                     x:Name="textBoxTitelOfCourtesy"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Fødselsdato-->
+            <Label Grid.Column="0"
+                   Grid.Row="4"
+                   x:Name="BirthDateLabel"
+                   Content="Fødselsdato:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <DatePicker Text="{Binding Path=SelectedEmployee.BirthDate, StringFormat='dd/MM/yyyy'}"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        x:Name="datePickerBirthDate"
+                        HorizontalAlignment="Left"
+                        Height="23"
+                        VerticalAlignment="Top"
+                        Width="140">
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly"
+                                Value="True" />
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
+
+            <!--Ansættelsesdato-->
+            <Label Grid.Column="0"
+                   Grid.Row="5"
+                   x:Name="HireDateLabel"
+                   Content="Ansættelsesdato:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <DatePicker Text="{Binding Path=SelectedEmployee.HireDate, StringFormat='dd/MM/yyyy'}"
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        x:Name="datePickerHireDate"
+                        HorizontalAlignment="Left"
+                        Height="23"
+                        VerticalAlignment="Top"
+                        Width="140">
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly"
+                                Value="True" />
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
+
+            <!--Adresse-->
+            <Label Grid.Column="0"
+                   Grid.Row="6"
+                   x:Name="AddressLabel"
+                   Content="Adresse:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.Address}"
+                     Grid.Column="1"
+                     Grid.Row="6"
+                     x:Name="textBoxAddress"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--By-->
+            <Label Grid.Column="0"
+                   Grid.Row="7"
+                   x:Name="CityLabel"
+                   Content="By:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.City}"
+                     Grid.Column="1"
+                     Grid.Row="7"
+                     x:Name="textBoxCity"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Region-->
+            <Label Grid.Column="0"
+                   Grid.Row="8"
+                   x:Name="RegionLabel"
+                   Content="Region:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.Region}"
+                     Grid.Column="1"
+                     Grid.Row="8"
+                     x:Name="textBoxRegion"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Postnummer-->
+            <Label Grid.Column="0"
+                   Grid.Row="9"
+                   x:Name="PostalCodeLabel"
+                   Content="Postnummer:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.PostalCode}"
+                     Grid.Column="1"
+                     Grid.Row="9"
+                     x:Name="textBoxPostalCode"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Land-->
+            <Label Grid.Column="0"
+                   Grid.Row="10"
+                   x:Name="CountryLabel"
+                   Content="land:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.Country}"
+                     Grid.Column="1"
+                     Grid.Row="10"
+                     x:Name="textBoxCountry"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Telefonnummer-->
+            <Label Grid.Column="0"
+                   Grid.Row="11"
+                   x:Name="HomePhoneLabel"
+                   Content="Telefonnummer:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.HomePhone}"
+                     Grid.Column="1"
+                     Grid.Row="11"
+                     x:Name="textBoxHomePhone"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Extension-->
+            <Label Grid.Column="0"
+                   Grid.Row="12"
+                   x:Name="ExtensionLabel"
+                   Content="Extension:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.Extension}"
+                     Grid.Column="1"
+                     Grid.Row="12"
+                     x:Name="textBoxExtension"
+                     PreviewTextInput="NumberValidationTextBox"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140"
+                     MaxLength="4" />
+
+            <!--Noter-->
+            <Label Grid.Column="0"
+                   Grid.Row="13"
+                   x:Name="NotesLabel"
+                   Content="Noter:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.Notes}"
+                     Grid.Column="1"
+                     Grid.Row="13"
+                     x:Name="textBoxNotes"
+                     HorizontalAlignment="Left"
+                     Height="93"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+            <!--Initialer-->
+            <Label Grid.Column="0"
+                   Grid.Row="14"
+                   x:Name="InitialsLabel"
+                   Content="Initialer:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Text="{Binding Path=SelectedEmployee.Initials}"
+                     Grid.Column="1"
+                     Grid.Row="14"
+                     x:Name="textBoxInitials"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Width="140" />
+
+
+            <!--Chef-->
+            <Label Grid.Column="0"
+                   Grid.Row="15"
+                   x:Name="ReportsToLabel"
+                   Content="Chef:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <ComboBox x:Name="bossesComboBox"
+                      Grid.Column="1"
+                      Grid.Row="15"
+                      HorizontalAlignment="Left"
+                      Height="23"
+                      VerticalAlignment="Top"
+                      Width="140"
+                      ItemsSource="{Binding Path=Bosses}"
+                      SelectedItem="{Binding Path=SelectedEmployee.Employee1, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                      IsSynchronizedWithCurrentItem="False">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}" />
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding LastName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <!--Opdatér knap-->
+            <Button Grid.Column="4"
+                    Grid.Row="16"
+                    x:Name="buttonUpdate"
+                    Content="Opdatér"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Width="65"
+                    Click="ButtonUpdate_Click"
+                    IsEnabled="False" />
+            <!--Tilføj knap-->
+            <Button Grid.Column="1"
+                    Grid.Row="16"
+                    x:Name="buttonAdd"
+                    Content="Tilføj"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Width="65"
+                    Click="ButtonAdd_Click"
+                    Margin="0,0,10,0" />
+            <!--Reset knap-->
+            <Button Grid.Column="1"
+                    Grid.Row="16"
+                    x:Name="buttonReset"
+                    Content="Reset"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Width="65"
+                    Click="ButtonReset_Click" />
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</UserControl>
