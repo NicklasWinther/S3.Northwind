@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.DataAccess", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.Gui.Desktop", "S3.Northwind.Gui.Desktop\S3.Northwind.Gui.Desktop.csproj", "{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.Entities", "S3.Northwind.Entities\S3.Northwind.Entities.csproj", "{2C778EB6-9851-4743-99E6-769A8D1FDEF4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.ValidationWebService", "S3.Northwind.ValidationWebService\S3.Northwind.ValidationWebService.csproj", "{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.ValidationWebServiceTest", "S3.Northwind.ValidationWebServiceTest\S3.Northwind.ValidationWebServiceTest.csproj", "{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.Entities", "S3.Northwind.Entities\S3.Northwind.Entities.csproj", "{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,6 @@ Global
 		{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E78C49DB-6BD2-4AB3-A0A0-6AF8A74F5955}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C778EB6-9851-4743-99E6-769A8D1FDEF4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F8FE682-2A86-438B-B70B-09B19EB4B5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

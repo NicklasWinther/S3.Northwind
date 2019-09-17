@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="S3.Northwind.Gui.Desktop.OrderUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:S3.Northwind.Gui.Desktop"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <Grid>
+
+        <!--Orders-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Column="0"
+                  x:Name="orderDataGrid"
+                  ItemsSource="{Binding Path=Orders}"
+                  AutoGenerateColumns="False"
+                  AlternatingRowBackground="LightBlue"
+                  SelectionChanged="OrderDataGrid_SelectionChanged"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Kunde Id"
+                                    Binding="{Binding CustomerID}" />
+                <DataGridTextColumn Header="Bestillingsdato"
+                                    Binding="{Binding OrderDate, StringFormat='dd/MM/yyyy'}" />
+                <DataGridTextColumn Header="Påkrævet dato"
+                                    Binding="{Binding RequiredDate, StringFormat='dd/MM/yyyy'}" />
+                <DataGridTextColumn Header="Navn"
+                                    Binding="{Binding ShipName}" />
+                <DataGridTextColumn Header="Addresse"
+                                    Binding="{Binding ShipAddress}" />
+                <DataGridTextColumn Header="By"
+                                    Binding="{Binding ShipCity}" />
+                <DataGridTextColumn Header="Region"
+                                    Binding="{Binding ShipRegion}" />
+                <DataGridTextColumn Header="Postnummer"
+                                    Binding="{Binding ShipPostalCode}" />
+                <DataGridTextColumn Header="Land"
+                                    Binding="{Binding ShipCountry}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--Order_Details-->
+
+        <DataGrid Grid.Row="2"
+                  x:Name="InvoiceDataGrid"
+                  ItemsSource="{Binding Path=SelectedOrder.Order_Details}"
+                  AutoGenerateColumns="False"
+                  AlternatingRowBackground="LightBlue"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ordre Id"
+                                    Binding="{Binding OrderID}" />
+                <DataGridTextColumn Header="Produkt Id"
+                                    Binding="{Binding ProductID}" />
+                <DataGridTextColumn Header="Enhedspris"
+                                    Binding="{Binding UnitPrice}" />
+                <DataGridTextColumn Header="Antal"
+                                    Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Rabat"
+                                    Binding="{Binding Discount}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--Invoices-->
+
+        <DataGrid Grid.Row="4"
+                  x:Name="invoiceDataGrid"
+                  ItemsSource="{Binding Path=Invoices}"
+                  AutoGenerateColumns="False"
+                  AlternatingRowBackground="LightBlue"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Kunde Id"
+                                    Binding="{Binding CustomerID}" />
+                <DataGridTextColumn Header="Kunde navn"
+                                    Binding="{Binding CustomerName}" />
+
+                <DataGridTextColumn Header="Addresse"
+                                    Binding="{Binding Address}" />
+                <DataGridTextColumn Header="By"
+                                    Binding="{Binding City}" />
+                <DataGridTextColumn Header="Region"
+                                    Binding="{Binding Region}" />
+                <DataGridTextColumn Header="Postnummer"
+                                    Binding="{Binding PostalCode}" />
+                <DataGridTextColumn Header="Land"
+                                    Binding="{Binding Country}" />
+                <DataGridTextColumn Header="Sælger"
+                                    Binding="{Binding Salesperson}" />
+                <DataGridTextColumn Header="Ordre Id"
+                                    Binding="{Binding OrderID}" />
+                <DataGridTextColumn Header="Bestillingsdato"
+                                    Binding="{Binding OrderDate, StringFormat='dd/MM/yyyy'}" />
+                <DataGridTextColumn Header="Påkrævet dato"
+                                    Binding="{Binding RequiredDate, StringFormat='dd/MM/yyyy'}" />
+                <DataGridTextColumn Header="Skib"
+                                    Binding="{Binding ShipperName}" />
+                <DataGridTextColumn Header="Skib"
+                                    Binding="{Binding ShipperName}" />
+                <DataGridTextColumn Header="Produkt navn"
+                                    Binding="{Binding ProductID}" />
+                <DataGridTextColumn Header="Produkt Id"
+                                    Binding="{Binding ProductName}" />
+                <DataGridTextColumn Header="Enhedspris"
+                                    Binding="{Binding UnitPrice}" />
+                <DataGridTextColumn Header="Antal"
+                                    Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Rabat"
+                                    Binding="{Binding Discount}" />
+                <DataGridTextColumn Header="Totalpris"
+                                    Binding="{Binding ExtendedPrice}" />
+                <DataGridTextColumn Header="Fragt"
+                                    Binding="{Binding Freight}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

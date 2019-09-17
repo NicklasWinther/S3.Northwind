@@ -65,14 +65,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="HrUserControl.xaml.cs">
+    <Compile Include="UserControls\HrUserControl.xaml.cs">
       <DependentUpon>HrUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StackedButtonNavigationUserControl.xaml.cs">
+    <Compile Include="UserControls\OrderUserControl.xaml.cs">
+      <DependentUpon>OrderUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StackedButtonNavigationUserControl.xaml.cs">
       <DependentUpon>StackedButtonNavigationUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\HrViewModel.cs" />
-    <Page Include="HrUserControl.xaml">
+    <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Page Include="UserControls\HrUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,7 +92,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StackedButtonNavigationUserControl.xaml">
+    <Page Include="UserControls\OrderUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StackedButtonNavigationUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,7 +134,7 @@
       <Name>S3.Northwind.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\S3.Northwind.Entities\S3.Northwind.Entities.csproj">
-      <Project>{2C778EB6-9851-4743-99E6-769A8D1FDEF4}</Project>
+      <Project>{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}</Project>
       <Name>S3.Northwind.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\S3.Northwind.ValidationWebService\S3.Northwind.ValidationWebService.csproj">
@@ -134,5 +142,6 @@
       <Name>S3.Northwind.ValidationWebService</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

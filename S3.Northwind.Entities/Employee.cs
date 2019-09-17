@@ -17,24 +17,9 @@ namespace S3.Northwind.Entities
             Territories = new HashSet<Territory>();
         }
 
-        private string lastName;
-        private string firstname;
-        private string title;
-        private string titleOfCourtesy;
-        private DateTime birthDate;
-        private DateTime hireDate;
-        private string address;
-        private string city;
-        private string region;
-        private string postalCode;
-        private string country;
-        private string homePhone;
-        private string extension;
-        private int reportsTo;
-        private string initials;
-        private string notes;
-
         public int EmployeeID { get; set; }
+
+        private string lastName;
 
         [Required]
         [StringLength(20)]
@@ -140,7 +125,7 @@ namespace S3.Northwind.Entities
         {
             if (title.Length > 30)
                 return (false, "Job titlen må højest være 30 tegn langt");
-            if(title.Any(char.IsDigit))
+            if (title.Any(char.IsDigit))
                 return (false, "Job titlen må ikke indeholde tal");
             return (true, String.Empty);
         }
@@ -179,6 +164,5 @@ namespace S3.Northwind.Entities
 
             return (true, String.Empty);
         }
-
     }
 }

@@ -27,9 +27,14 @@ namespace S3.Northwind.Gui.Desktop
             this.mainWindow = mainWindow;
         }
 
-        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        private void HrToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             mainWindow.DetailUserControl.Content = new HrUserControl();
+        }
+
+        private void OrderToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            mainWindow.DetailUserControl.Content = new OrderUserControl();
         }
     }
 }

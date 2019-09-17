@@ -8,8 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
         <StackPanel>
-            <ToggleButton Content="_HR" Height="40" Checked="ToggleButton_Checked"/>
-            <ToggleButton Content="Ordre" Height="40"/>
+            <ToggleButton Content="_HR" Height="40" Checked="HrToggleButton_Checked"/>
+            <ToggleButton Content="Ordre" Height="40"
+                          Checked="OrderToggleButton_Checked"/>
             <ToggleButton Content="Produkter" Height="40"/>
             <ToggleButton Content="Regnskab" Height="40"/>
             <ToggleButton Content="Kunder" Height="40"/>

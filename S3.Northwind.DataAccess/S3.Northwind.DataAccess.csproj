@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\S3.Northwind.Entities\S3.Northwind.Entities.csproj">
-      <Project>{2C778EB6-9851-4743-99E6-769A8D1FDEF4}</Project>
+      <Project>{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}</Project>
       <Name>S3.Northwind.Entities</Name>
     </ProjectReference>
   </ItemGroup>

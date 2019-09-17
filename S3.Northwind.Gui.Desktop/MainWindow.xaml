@@ -8,9 +8,8 @@
         Title="Northwind"
         Height="800"
         Width="1200"
-        WindowStartupLocation="CenterScreen"
-        FontFamily="Comic Sans MS"
-        Icon="https://i.pinimg.com/originals/85/78/bf/8578bfd439ef6ee41e103ae82b561986.png">
+        WindowStartupLocation="CenterScreen">
+    
     <Grid Background="LightBlue">
         <DockPanel>
             <Menu DockPanel.Dock="Top">
