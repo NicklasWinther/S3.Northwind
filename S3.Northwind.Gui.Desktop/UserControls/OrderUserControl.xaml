@@ -17,6 +17,10 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="20" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <!--<RowDefinition Height="40" />
+            <RowDefinition Height="40" />-->
         </Grid.RowDefinitions>
         <DataGrid Grid.Column="0"
                   x:Name="orderDataGrid"
@@ -24,7 +28,8 @@
                   AutoGenerateColumns="False"
                   AlternatingRowBackground="LightBlue"
                   SelectionChanged="OrderDataGrid_SelectionChanged"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Kunde Id"
                                     Binding="{Binding CustomerID}" />
@@ -54,7 +59,8 @@
                   ItemsSource="{Binding Path=SelectedOrder.Order_Details}"
                   AutoGenerateColumns="False"
                   AlternatingRowBackground="LightBlue"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ordre Id"
                                     Binding="{Binding OrderID}" />
@@ -76,13 +82,13 @@
                   ItemsSource="{Binding Path=Invoices}"
                   AutoGenerateColumns="False"
                   AlternatingRowBackground="LightBlue"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Kunde Id"
                                     Binding="{Binding CustomerID}" />
                 <DataGridTextColumn Header="Kunde navn"
                                     Binding="{Binding CustomerName}" />
-
                 <DataGridTextColumn Header="Addresse"
                                     Binding="{Binding Address}" />
                 <DataGridTextColumn Header="By"
@@ -115,11 +121,40 @@
                                     Binding="{Binding Quantity}" />
                 <DataGridTextColumn Header="Rabat"
                                     Binding="{Binding Discount}" />
-                <DataGridTextColumn Header="Totalpris"
+                <DataGridTextColumn Header="Pris"
                                     Binding="{Binding ExtendedPrice}" />
                 <DataGridTextColumn Header="Fragt"
                                     Binding="{Binding Freight}" />
             </DataGrid.Columns>
         </DataGrid>
+        
+        <!--Text Boxes-->
+        
+        <Label Grid.Row="5"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Content="Totalpris:" />
+        <TextBox Grid.Row="6"
+                 Width="100"
+                 Height="30"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Text="{Binding TotalPrice}"
+                 IsReadOnly="True" />
+        
+        
+        <!--<Label Grid.Row="7"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Content="Valuta:" />
+        <ComboBox Grid.Row="8"
+                  x:Name="CurrencyComboBox"
+                  Width="100"
+                  Height="30"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  ItemsSource="{Binding Currencies}"
+                  SelectionChanged="CurrencyComboBox_SelectionChanged"
+                  />-->
     </Grid>
 </UserControl>

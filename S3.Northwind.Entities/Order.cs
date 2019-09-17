@@ -8,6 +8,8 @@ namespace S3.Northwind.Entities
 
     public partial class Order
     {
+        private DateTime? shippedDate;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
@@ -25,7 +27,22 @@ namespace S3.Northwind.Entities
 
         public DateTime? RequiredDate { get; set; }
 
-        public DateTime? ShippedDate { get; set; }
+        public DateTime? ShippedDate
+        {
+            get => shippedDate; set
+            {
+                var validationResult = ValidateShippedDate(value);
+                if (!validationResult.isValid)
+                {
+                    throw new ArgumentException(validationResult.errorMessage, nameof(ShippedDate));
+                }
+                if (shippedDate != value)
+                {
+                    shippedDate = value;
+                }
+
+            }
+        }
 
         public int? ShipVia { get; set; }
 
@@ -58,5 +75,12 @@ namespace S3.Northwind.Entities
         public virtual ICollection<Order_Detail> Order_Details { get; set; }
 
         public virtual Shipper Shipper { get; set; }
+
+        public static (bool isValid, string errorMessage) ValidateShippedDate(DateTime? shippedDate)
+        {
+            if (shippedDate > DateTime.Today)
+                return (false, "Dato må ikke være i fremtiden");
+            return (true, String.Empty);
+        }
     }
 }

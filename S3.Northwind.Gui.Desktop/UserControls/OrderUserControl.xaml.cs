@@ -1,6 +1,7 @@
 ﻿using S3.Northwind.DataAccess;
 using S3.Northwind.Entities;
 using S3.Northwind.Gui.Desktop.ViewModels;
+using S3.Northwind.ValidationWebService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace S3.Northwind.Gui.Desktop
             InitializeComponent();
             model = new OrderViewModel();
             DataContext = model;
+            model.ExchangeRates = new ExchangeRatesWebService().GetCurrencies();
         }
 
 
@@ -36,6 +38,12 @@ namespace S3.Northwind.Gui.Desktop
         {
             model.SelectedOrder = orderDataGrid.SelectedItem as Order;
             model.Invoices = model.GetInvoices();
+            model.TotalPrice = model.GetTotalPrice();
         }
+
+        //private void CurrencyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    model.SelectedCurrency = CurrencyComboBox.SelectedItem.ToString();
+        //}
     }
 }

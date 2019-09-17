@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace S3.Northwind.ValidationWebService
 {
-    public class Address
+    public class ExchangeRates
     {
+        public Rates Rates { get; set; }
     }
 }

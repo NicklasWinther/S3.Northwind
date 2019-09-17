@@ -55,11 +55,17 @@
     <Compile Include="PhoneNumberWebServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextWebServiceTest.cs" />
+    <Compile Include="ExchangeRatesWebServiceTest.cs" />
+    <Compile Include="OrderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\S3.Northwind.Entities\S3.Northwind.Entities.csproj">
+      <Project>{159EBD8F-4BA5-480A-B3DD-E97B28355D4A}</Project>
+      <Name>S3.Northwind.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\S3.Northwind.ValidationWebService\S3.Northwind.ValidationWebService.csproj">
       <Project>{6D7DDBA2-A06F-4CB7-A159-3EC5F74D3F86}</Project>
       <Name>S3.Northwind.ValidationWebService</Name>

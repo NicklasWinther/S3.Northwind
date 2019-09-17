@@ -47,13 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="JsonAddress.cs" />
+    <Compile Include="ExchangeRates.cs" />
+    <Compile Include="ExchangeRatesWebService.cs" />
     <Compile Include="JsonPhoneNumber.cs" />
     <Compile Include="JsonText.cs" />
     <Compile Include="PhoneNumber.cs" />
     <Compile Include="PhoneNumberWebService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rates.cs" />
     <Compile Include="TextWebService.cs" />
   </ItemGroup>
   <ItemGroup>
